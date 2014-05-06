@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-6.newrelic.com","errorBeacon":"jserror.newrelic.com","licenseKey":"b908402cd3","applicationID":"1237919","transactionName":"clhXTRQOW10BQBsRWVZSShYVCVhG","queueTime":36,"applicationTime":738,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-400.min.js"}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgYGUVVACQEDU1hTDg=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e){function n(t,e,n){n||(n={});for(var r=o[t],a=r&&r.length||0,s=n[i]||(n[i]={}),u=0;a>u;u++)r[u].apply(s,e);return s}function r(t,e){var n=o[t]||(o[t]=[]);n.push(e)}var o={},i="nr@context";e.exports={on:r,emit:n}},{}],2:[function(t){function e(t,e,o,a,u){return s?s-=1:n("err",[u||new UncaughtException(t,e,o)]),"function"==typeof i?i.apply(this,r(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}var n=t("handle"),r=t(6),o=t(5),i=window.onerror,a=!1,s=0;t("loader").features.push("err"),window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(4),a=!0)}o.on("fn-start",function(){a&&(s+=1)}),o.on("fn-err",function(t,e,r){a&&(this.thrown=!0,n("err",[r,(new Date).getTime()]))}),o.on("fn-end",function(){a&&!this.thrown&&s>0&&(s-=1)}),o.on("internal-error",function(t){n("ierr",[t,(new Date).getTime(),!0])})},{1:5,2:4,3:3,4:6,5:1,6:14,handle:"D5DuLP",loader:"G9z0Bl"}],3:[function(t){function e(t){r.inPlace(t,["addEventListener","removeEventListener"],"-",n)}function n(t){return t[1]}var r=t(1),o=(t(3),t(2));if(e(window),"getPrototypeOf"in Object){for(var i=document;i&&!i.hasOwnProperty("addEventListener");)i=Object.getPrototypeOf(i);i&&e(i);for(var a=XMLHttpRequest.prototype;a&&!a.hasOwnProperty("addEventListener");)a=Object.getPrototypeOf(a);a&&e(a)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&e(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=e["nr@wrapped"]?t[1]=e["nr@wrapped"]:e["nr@wrapped"]=t[1]=r(e,"fn-"):"function"==typeof e.handleEvent&&r.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:15,2:1,3:14}],4:[function(t){var e=(t(3),t(1)),n=t(2);e.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=e(t[0],"fn-")})},{1:15,2:1,3:14}],5:[function(t){function e(t){var e=t[0];"string"==typeof e&&(e=new Function(e)),t[0]=n(e,"fn-")}var n=(t(3),t(1)),r=t(2);n.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",e)},{1:15,2:1,3:14}],6:[function(t){function e(){o.inPlace(this,s,"fn-")}function n(t,e){o.inPlace(e,["onreadystatechange"],"fn-")}function r(t,e){return e}var o=t(1),i=t(2),a=window.XMLHttpRequest,s=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];window.XMLHttpRequest=function(t){var n=new a(t);return i.emit("new-xhr",[],n),o.inPlace(n,["addEventListener","removeEventListener"],"-",function(t,e){return e}),n.addEventListener("readystatechange",e,!1),n},window.XMLHttpRequest.prototype=a.prototype,o.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",r),i.on("send-xhr-start",n),i.on("open-xhr-start",n)},{1:15,2:1}],7:[function(t){function e(){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;u>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,d="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,p=e(d);if(p&&(r.rxSize=p),this.sameOrigin){var f=t.getResponseHeader("X-NewRelic-App-Data");f&&(n.cat=f.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}t("loader").features.push("xhr");var o=t("handle"),i=t(1),a=t(5),s=["load","error","abort","timeout"],u=s.length,d=t(2);t(3),t(4),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var d=e(o);d&&(r.txSize=d)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){a.emit("internal-error",e)}};for(var p=0;u>p;p++)n.addEventListener(s[p],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&e()},{1:8,2:11,3:3,4:6,5:1,handle:"D5DuLP",loader:"G9z0Bl"}],8:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e){var n=r[t];return n?n.apply(this,e):(o[t]||(o[t]=[]),void o[t].push(e))}var r={},o={};e.exports=n,n.queues=o,n.handlers=r},{}],11:[function(t,e){function n(t){if(!t||"object"!=typeof t&&"function"!=typeof t)return-1;if(t===window)return 0;if(o.call(t,"__nr"))return t.__nr;try{return Object.defineProperty(t,"__nr",{value:r,writable:!0,enumerable:!1}),r}catch(e){return t.__nr=r,r}finally{r+=1}}var r=1,o=Object.prototype.hasOwnProperty;e.exports=n},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=c.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID){c.proto="https"===f.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=u.createElement("script");e.src=c.proto+t.agent,u.body.appendChild(e)}}function r(){"complete"===u.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,u=s.document,d="addEventListener",p="attachEvent",f=(""+location).split("?")[0],c=e.exports={offset:i(),origin:f,features:[]};u[d]?(u[d]("DOMContentLoaded",o,!1),s[d]("load",n,!1)):(u[p]("onreadystatechange",r),s[p]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],14:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],15:[function(t,e){function n(t,e,n,r){function nrWrapper(){try{var a,u=s(arguments),d=this,p=n&&n(u,d)||{}}catch(f){i([f,"",[u,d,r],p])}o(e+"start",[u,d,r],p);try{return a=t.apply(d,u)}catch(c){throw o(e+"err",[u,d,c],p),c}finally{o(e+"end",[u,d,a],p)}}return t&&"function"==typeof t&&t.apply&&!t._wrapped?(e||(e=""),nrWrapper._wrapped=!0,nrWrapper):t}function r(t,e,r,o){r||(r="");var i,a,s,u="-"===r.charAt(0);for(s=0;s<e.length;s++)a=e[s],i=t[a],i&&"function"==typeof i&&i.apply&&!i._wrapped&&(t[a]=n(i,u?a+r:r,o,a,t))}function o(t,e,n){try{a.emit(t,e,n)}catch(r){i([r,t,e,n])}}function i(t){try{a.emit("internal-error",t)}catch(e){}}var a=t(1),s=t(2);e.exports=n,n.inPlace=r},{1:1,2:14}]},{},["G9z0Bl",2,7]);</script>
+  <title>Rainforest Action Network</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="c//QKYhB0AZNo8ayT2Rzn8x4pmjUCtxKmIlahg94O9o=" name="csrf-token" />
+
+	<link rel="canonical" href="http://rainforestactionnetwork.nationbuilder.com/" />
+		<meta name="Title" content="Sign the Pledge">
+    <meta property="og:title" content="Rainforest Action Network"/>
+  <meta property="og:url" content="http://rainforestactionnetwork.nationbuilder.com/">
+    <meta property="og:type" content="article">
+  		<link rel="image_src" href="http://d3n8a8pro7vhmx.cloudfront.net/rainforestactionnetwork/pages/1/meta_images/original/rantop.jpg?1398883992" />
+			<meta property="og:image" content="http://d3n8a8pro7vhmx.cloudfront.net/rainforestactionnetwork/pages/1/meta_images/original/rantop.jpg?1398883992" />
+  <meta property="og:site_name" content="Rainforest Action Network"/>
+	<meta property="fb:app_id" content="126739610711965" />
+
+<script type="text/javascript">
+  var NB = NB || {};
+
+  NB.environment = "production";
+  NB.pageId = "1";
+  NB.Liquid = NB.Liquid || {};
+</script>
+
+<script type="text/javascript">
+		//<![CDATA[
+			window._auth_token_name = "authenticity_token";
+			window._auth_token = "c//QKYhB0AZNo8ayT2Rzn8x4pmjUCtxKmIlahg94O9o=";
+		//]]>
+</script>
+
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/cupertino/jquery-ui.css" type="text/css" media="all">
+
+
+<!--[if lt IE 7.]>
+<script type="text/javascript" src="/javascripts/jquery.supersleight.js"></script>
+<![endif]-->
+
+<script src="http://d3n8a8pro7vhmx.cloudfront.net/assets/liquid_basic-66ec5591254b7e2fa5347134951c329a.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  window.twttr = (function (d,s,id) {
+    var t, js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+    js.src="http://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+    return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+  }(document, "script", "twitter-wjs"));
+</script>
+
+<script type="text/javascript">
+  //Facebook App ID
+  NB.FBAppId = '126739610711965';
+</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'http://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+<!-- Quantcast Tag, part 1 -->
+<script type="text/javascript">
+  var _qevents = _qevents || [];
+
+  (function() {
+   var elem = document.createElement('script');
+
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem, scpt);
+  })();
+</script>
+
+<!-- Theme: Name - Rainforest Action Network; ID - 535e556e01925b673a000001; - API Version - 1 -->
+
+  <link rel="stylesheet" href="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/bootstrap.css" />
+  <link rel="stylesheet" href="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/theme.scss" />
+  <link rel="stylesheet" href="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/goalProgress.css" />
+  <link rel="stylesheet" href="http://d3n8a8pro7vhmx.cloudfront.net/themes/535e556e01925b673a000001/attachments/original/1398880746/vm-icons.css?1398880746" />
+  <link rel="stylesheet" href="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/twitter.css" />
+
+<link rel="stylesheet" href="http://msamricth.github.io/Divergent/emm.css" media="all" />
+    
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Brad Schenck">
+  <meta property="og:title" content="Rainforest Action Network"/>
+  <meta property="og:type" content=""/>
+  <meta property="og:image" content="http://d3n8a8pro7vhmx.cloudfront.net/rainforestactionnetwork/pages/1/meta_images/large/rantop.jpg?1398883992"/>
+  <meta property="og:url" content="http://rainforestactionnetwork.nationbuilder.com/"/>
+  <meta property="og:site_name" content="Rainforest Action Network"/>
+  <meta property="og:description" content=""/>
+  <meta property="fb:admins" content=""/>
+  <meta name="twitter:card" content="http://d3n8a8pro7vhmx.cloudfront.net/rainforestactionnetwork/pages/1/meta_images/large/rantop.jpg?1398883992">
+  <meta name="twitter:site" content="http://rainforestactionnetwork.nationbuilder.com/">
+  <meta name="twitter:creator" content="http://twitter.com/BradASchenck">
+  <meta name="twitter:title" content="Rainforest Action Network">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://d3n8a8pro7vhmx.cloudfront.net/rainforestactionnetwork/pages/1/meta_images/original/rantop.jpg?1398883992">
+  <link rel="apple-touch-icon" href="/meta_images/large/missing.png" /> 
+  <link rel="apple-touch-icon" sizes="72x72" href="/meta_images/large/missing.png" /> 
+  <link rel="apple-touch-icon" sizes="114x114" href="/meta_images/large/missing.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/meta_images/large/missing.png" />
+  
+  <script src="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body>
+  <!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Rainforest Action Network</a>
+  </div>
+  
+</nav>
+<style>
+@media (min-width: 767px) {
+.navbar-fixed-top {
+display: none !important;
+  }}
+  @media (max-width: 767px) {
+  #page_wrapper {margin-top: 50px;}
+}
+</style>
+<div class="collapse navbar-collapse" id="navbar">
+    <ul class="nav navbar-nav side-nav mini-nav">
+      <div class="burger"><i class="icon icon-menu6"></i></div>
+      
+      
+      <li class="dropdown ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">We Fight For Forests <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          
+          
+          <li><a href="/palm_oil">Palm Oil</a></li>
+          
+          <li><a href="/rainforest_free_paper">Rainforest Free Paper</a></li>
+          
+          <li><a href="/protect_an_acre">Protect an Acre</a></li>
+          
+        </ul>
+      </li>
+      
+      
+      
+      <li class="dropdown ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">We Fight for Climate <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          
+          
+          <li><a href="/coal">Coal</a></li>
+          
+          <li><a href="/tar_sands">Tar Sands</a></li>
+          
+          <li><a href="/kxl">KXL</a></li>
+          
+        </ul>
+      </li>
+      
+      
+      
+      <li class="dropdown ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">How We Win <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          
+          
+          <li><a href="/the_history">The History</a></li>
+          
+          <li><a href="/our_mission">Our Mission</a></li>
+          
+          <li><a href="/jobs">Jobs</a></li>
+          
+          <li><a href="/staff">Staff</a></li>
+          
+          <li><a href="/board_of_directors">Board of Directors</a></li>
+          
+          <li><a href="/financial_statements">Financial Statements</a></li>
+          
+          <li><a href="/protect_an_acre2">Protect an Acre</a></li>
+          
+          <li><a href="/rainforest_heroes">Rainforest Heroes</a></li>
+          
+        </ul>
+      </li>
+      
+      
+      
+      <li class="dropdown ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get the Latest <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          
+          
+          <li><a href="/blog">Blog</a></li>
+          
+          <li><a href="/social_networks">Social Networks</a></li>
+          
+          <li><a href="/publications">Publications</a></li>
+          
+        </ul>
+      </li>
+      
+      
+      
+      <li class="active">
+        <a href="/">Home</a>
+      </li>
+      
+      
+      
+      <li class="">
+        <a href="/donate">Contribute</a>
+      </li>
+      
+      
+      
+    </ul>
+    
+  </div>
+
+  
+  
+  <div id="wrapper" class="mini-nav">
+    
+    
+    <div id="page_wrapper">
+  <div class="row">
+
+    <div class="col-md-3 col-lg-3 hidden-sm hidden-xs parallax-sizer noPadding">
+      <div class="col-md-12 hidden-sm hidden-xs noPadding" id="parallax">
+      	<div class="topmostLayer" data-bottom="background-position: 100% 460px;" data-top="background-position: 100% 770px;" data-anchor-target="#mainarea"></div>
+      	<div class="abovetopLayer" data-bottom="background-position: 100% 17px;" data-top="background-position: 100% 390px;" data-anchor-target="#mainarea"></div>
+      	<div class="topLayer" data-bottom="background-position: 100% -46px;" data-top="background-position: 100% 420px;" data-anchor-target="#mainarea"></div>
+      	<div class="midLayer" data-bottom="background-position: 100% -226px;" data-top="background-position: 100% 300px;" data-anchor-target="#mainarea"></div>
+      	<div class="backLayer" data-bottom="background-position: 100% -425px;" data-top="background-position: 100% 135px;" data-anchor-target="#mainarea"></div>
+      	<div class="bgLayer" data-bottom="background-position: 100% -540px;" data-top="background-position: 100% 102px;" data-anchor-target="#mainarea"></div>
+    </div>
+    </div>
+    <div class="col-md-7 col-lg-7 noPadding" id="mainarea">
+      <div id="halfimage">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="mainH1">About Ran</h1>
+              
+<!--left side bar -->
+              
+              <div class="col-md-6 m20">
+                 <iframe width="385" height="289" src="http://www.youtube.com/embed/ZXGDt5bI_Fs" frameborder="0" allowfullscreen></iframe>
+                  
+                  <div class="entry">
+                  <h3 class="sub-title">Vision</h5> <p>Rainforest Action Network envisions a world where each generation sustains increasingly healthy forests, where the rights of all communities are respected, and where corporate profits never come at the expense of people or the planet. </p>
+                  </div>
+                  
+                  <div class="entry">
+                  <h3 class="sub-title">Market Activism</h5> <p>Our corporate campaigns seek to push companies to balance profits with principles, to show that it is possible to do well by doing good. We publicly applaud and support political and corporate leaders who show strong leadership and innovation in advancing sustainability. Sadly, many companies require more motivation. Our campaigns leverage public opinion and consumer pressure to turn the public stigma of environmental destruction into a business nightmare for any American company that refuses to adopt responsible environmental policies. But much more needs to be done. For our society to truly break its oil and coal addictions, protect endangered forests, and promote human rights and sustainable finance, everyone must get involved.</p> <div class="joinus pull-right"> 
+                     <a class="btn btn-ran" href="http://act.ran.org/p/salsa/web/common/public/signup?signup_page_KEY=3209">Please join us. &nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></a></div>
+                      <div class="clearfix"></div> 
+                      </div>
+                  </div>
+              
+              
+              <!--right side bar -->
+              
+<div class="col-md-6 spec"><h4 class="sub-title">Who we are</h4><p></p> <p>
+Rainforest Action Network (RAN) is headquartered in San Francisco, California with office staff in Tokyo, Japan, plus thousands of volunteer scientists, teachers, parents, students and other concerned citizens around the world. We believe that a sustainable world can be created in our lifetime, and that aggressive action must be taken immediately to leave a safe and secure world for our children.</p>
+<p>
+Dubbed <span class="quoted">“some of the most savvy environmental agitators in the business”</span> by the Wall Street Journal, RAN uses hard-hitting markets campaigns to align the policies of multinational corporations with widespread public support for environmental protection. We believe that logging ancient forests for copy paper or destroying an endangered ecosystem for a week’s worth of oil is not just destructive, but outdated and unnecessary.
+                  </p>
+<div class="joinUsMenu">
+					<a href="http://www.facebook.com/rainforestactionnetwork"><img src="http://msamricth.github.io/Divergent/social/facebook.png" border="0" alt="Facebook" class="socialNetworkIcon"></a>
+					<a href="http://twitter.com/#!/ran"><img src="http://msamricth.github.io/Divergent/social/twitter.png" border="0" alt="Twitter" class="socialNetworkIcon"></a>
+					<a href="http://www.youtube.com/user/ranvideo"><img src="http://msamricth.github.io/Divergent/social/youtube.png" border="0" alt="YouTube" class="socialNetworkIcon"></a>
+					<a href="http://www.flickr.com/photos/rainforestactionnetwork"><img src="http://msamricth.github.io/Divergent/social/social\flickr.png" border="0" alt="Flickr" class="socialNetworkIcon"></a>
+				</div>
+    
+ 
+    <p></p>
+    <h4 class="sub-title">Newsroom</h4><ul>
+  <li class="ex-more"> <a href="http://ran.org/anti-fast-track-mobilization-be-extended-after-more-half-million-people-take-action">Anti-Fast Track mobilization to be extended after more than half a million people take action</a>
+    </li>
+  <li class="ex-more"> <a href="http://ran.org/environmental-groups-release-statements-about-pending-environmental-review-keystone-xl">Environmental Groups Release Statements About Pending Environmental Review of Keystone XL</a>
+    </li>
+<li class="ex-more"> <a href="http://ran.org/new-campaign-launched-%E2%80%9C10-days-stop-fast-track%E2%80%9D-brings-together-diverse-network-labor-internet-and">New campaign launched: “10 Days to Stop Fast Track” brings together diverse network of labor, Internet, and environmental activists. </a>
+    </li>
+<li class="ex-more"> <a href="http://ran.org/rainforest-action-network-statement-support-arctic-30">Rainforest Action Network Statement of Support with Arctic 30 </a>
+    </li>
+<li class="ex-more"> <a href="http://ran.org/advancing-corporate-accountability-josh-mailman-describes-rainforest-action-network%E2%80%99s-successful">Advancing corporate accountability: Josh Mailman describes the Rainforest Action Network’s successful campaigns to stop environmental abuses</a>
+      </li>
+    </ul>
+  <p>
+ <a class="pull-right"  href="http://ran.org/newsroom/3205">
+    view all related news <span class="glyphicon glyphicon-globe"></span></a></p>
+    
+    
+    <p></p>
+    
+    
+   <h4 class="sub-title">Publications</h4>
+    
+    
+ <div class="media ex-more">
+  <a class="pull-left" href="http://ran.org/rainforest-action-network-annual-report-2011-2012">
+    <img class="media-object" src="http://ran.org/sites/default/files/styles/thumbnail/public/ar2012.png" alt="Rainforest Action Network Annual Report 2011-2012">
+  </a>
+  <div class="media-body">
+   <a href="http://ran.org/rainforest-action-network-annual-report-2011-2012"><h5 class="media-heading">Rainforest Action Network Annual Report 2011-2012</h5></a>This is the Year
+  </div>
+</div>                
+ <div class="media ex-more">
+  <a class="pull-left" href="http://ran.org/panther-winter-2012"><img class="media-object" src="http://ran.org/sites/default/files/styles/thumbnail/public/191_winter_2012_cover.jpg"></a>
+         <div class="media-body">
+   <a href="http://ran.org/panther-winter-2012"><h5 class="media-heading">The Panther Winter 2012</h5></a>Five Ways to Change the World in 2012...
+</div>  
+     </div>
+  <div class="media ex-more">
+  <a class="pull-left" href="http://ran.org/rainforest-action-network-annual-report-2010-2011"><img class="media-object" src="http://ran.org/sites/default/files/styles/thumbnail/public/ran_ar_2011_cover.jpg"></a> <div class="media-body">
+   <a href="http://ran.org/rainforest-action-network-annual-report-2010-2011"><h5 class="media-heading">Rainforest Action Network Annual Report 2010-2011</h5></a>A Year For Transformative Change
+  </div>
+</div>  
+              
+              
+              
+              
+<a class="pull-right" href="http://ran.org/publications/3205">
+    view all related publications <span class="glyphicon glyphicon-stats"></span></a>
+   
+  </div>
+              
+              <!---left side bar-->
+              
+              
+              <div class="col-md-8">
+                  <h4 class="sub-title">Learn More</h4>
+ <div class="media ex-more">
+  <a class="pull-left" href="http://ran.org/biography-lindsey-allen">
+    <img class="media-object" src="http://ran.org/sites/default/files/styles/square_thumbnail/public/lindsey_allen_headshot_200px_0.jpg" alt="Biograph of Lindsey Allen">
+  </a>
+  <div class="media-body">
+    <a href="http://ran.org/biography-lindsey-allen"><h4 class="media-heading">Biography of Lindsey Allen</h4></a>
+<a class="type2" href="http://ran.org/biography-lindsey-allen">Lindsey Allen is a world-class campaigner with more than a decade of experience and an unmatched track record pressuring and inspiring some of the world’s largest corporations to protect rainforests. </a><a href="http://ran.org/biography-lindsey-allen" id="biography-of-lindsey-allen" data-toggle="tooltip" data-placement="bottom" title="Allen has spent her career preventing commodity expansion into globally critical forest areas, and has played a central role in achieving some of the most significant corporate policy commitments to protect forests over the past decade.">View more </a>
+     
+  </div>
+</div>
+                  
+                  
+ <div class="media ex-more">
+  <a class="pull-left" href="http://ran.org/catalyzing-movement">
+    <img class="media-object" src="http://ran.org/sites/default/files/styles/square_thumbnail/public/ran_randy_clipboard_200x272.jpg" alt="Catalyzing a Movement.">
+  </a>
+  <div class="media-body">
+   <a href="http://ran.org/catalyzing-movement"><h4 class="media-heading">Catalyzing a Movement</h4></a><a class="type2" href="http://ran.org/catalyzing-movement">
+ At the first organizing conference upon which Rainforest Action Network was founded in November, 1985, it was clear that RAN was going to be something different. </a>
+  </div>
+</div>                
+                  
+ <div class="media ex-more">
+  <a class="pull-left" href="#">
+    <img class="media-object" src="http://ran.org/sites/default/files/styles/square_thumbnail/public/ran_andrepic_381x447.jpg" alt="Backstage with Rainforest Action Network">
+  </a>
+  <div class="media-body">
+    <a href="http://ran.org/backstage-rainforest-action-network"><h4 class="media-heading">Backstage with Rainforest Action Network</h4></a><a class="type2" href="http://ran.org/backstage-rainforest-action-network">
+    Andre Carothers, Chairman of the RAN Board, on how RAN it all began: "It was clear from the beginning that Rainforest Action Network was going to be a different kind of animal. Rainforests, bulldozers, direct action, brand vulnerability, pickets, lock-downs, media mind-bombs."</a>
+  </div>
+</div>
+                 <a class="pull-right" href="http://ran.org/learn-more/3205">
+    view all related stories <span class="glyphicon glyphicon-book"></span></a>
+                  
+                  
+                  
+             </div>
+              
+              
+                     <!--right side bar -->
+              
+              
+              <div class="col-md-4 spec">
+                   <h4 class="sub-title">Take Action Today</h4>
+  <a href="http://ran.org/act/cargill-child-labor?t=w"><img class="center-block" src="http://ran.org/sites/default/files/action_images/action_cargill_childlabor_310x190.jpg" width="100%"></a>
+    <a class="btn btn-danger center-block" href="http://ran.org/act/cargill-child-labor?t=w"><h5>Tell Cargill You're Outraged</h5></a><p class="take-action">
+    Cargill must adopt comprehensive safeguards to prevent palm oil connected to slave and child labor.</p>
+                  
+                <p></p>
+  <h4 class="sub-title">Featured Supporter</h4><div class="media ex-more supporter">
+  <a class="pull-left" href="http://ran.org/lara-gar-truppelli"><img class="media-object" src="http://ran.org/sites/default/files/styles/thumbnail/public/devo_larsgar118x118.png"></a>
+  <div class="media-body"><a href="http://ran.org/lara-gar-truppelli">Lara &amp; Gar Truppelli</a>are longtime Rainforest Action Network enthusiasts and supporters. We had an incredible time with them last March when they threw an epic 25th anniversary party for RAN at The Lake Chalet in Oakland, California. 
+                  </div>  
+                  </div>
+  <a class="pull-right" href="http://ran.org/donor-profiles"> See more <span class="glyphicon glyphicon-leaf"></span></a>
+</div>
+  
+ 
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 noPadding" id="sidebarContainer">
+			  <div class="col-md-12 noPadding" id="sidebar">
+
+    		</div>
+    </div>
+  </div>
+</div>
+    
+  </div>
+  
+
+
+  
+  <!-- /container -->        
+  <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId  : 126739610711965,
+      channelUrl : "//rainforestactionnetwork.nationbuilder.com/channel.html",
+      status     : true,
+      cookie     : true,
+      xfbml      : true
+    });
+  };
+  (function(d, debug){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "https://connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document, false));
+</script>
+
+
+<script src="http://d3n8a8pro7vhmx.cloudfront.net/assets/liquid-eb6290b7c89f0d9a88595f96f29f8423.js" type="text/javascript"></script>
+<script src="http://d3n8a8pro7vhmx.cloudfront.net/assets/tinymce-jquery-3394f9df7e6f3ccb696cb4c0eaedfe27.js" type="text/javascript"></script>
+
+
+
+<!-- Quantcast Tag, part 2 -->
+<script type="text/javascript">
+_qevents.push(
+	{ qacct:"p-5ftmjaPECGTTU" }
+	);
+</script>
+
+<noscript>
+<div style="display: none;"><img src="http://pixel.quantserve.com/pixel?a.1=p-5ftmjaPECGTTU" height="1" width="1" alt="Quantcast"/></div>
+</noscript>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  <script src="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/bootstrap.js"></script>
+  <script src="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/twitter.js"></script>
+  <script src="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/goalProgress.js"></script>
+  <script src="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/sharebutton.js"></script>
+  <script src="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/main.js"></script>
+  <script src="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/skrollr.js"></script>
+  <script src="http://rainforestactionnetwork.nationbuilder.com/themes/1/535e556e01925b673a000001/0/attachments/13986912011398888243/default/custom.js"></script>
+    
+<!--Emm's Script space-->
+    <script> $('#biography-of-lindsey-allen').tooltip('hide')
+
+    </script>
+    
+</body>
+</html>
+

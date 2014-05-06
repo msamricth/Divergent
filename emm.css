@@ -1,0 +1,104 @@
+/*!-- Emm's style sheet ---- */
+.m20 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.m10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.quoted {
+    color: #693;
+}
+p {color:#6c6c6c;font-size: 16px;}
+.sub-title {
+    border-bottom: 8px solid #c5ec48;
+}
+.entry {
+    margin: 20px 0;  
+    padding: 20px;  
+    border-left: 3px solid #c5ec48;
+    background: rgba(197, 236, 72, 0.1);   
+}
+.entry > .sub-title {
+    border-bottom: 2px solid rgba(197, 236, 72, 0.17);
+    color: #c5ec48;
+    margin-top: 0;
+}
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('http://getbootstrap.com/dist/fonts/glyphicons-halflings-regular.woff') format('woff')
+}
+.btn-ran {
+    color: #4f5e1d;  
+    background-color: #c5ec48;  
+    border-color: #B5D238;
+    border-radius: 0;
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.btn-ran:hover {
+    padding-left: 30px;        
+}
+.btn-ran:hover {
+    width: 100%;    
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);    
+    padding: 10px 15px 10px 35px;  -webkit-transition: all .25s ease;  -moz-transition: all .25s ease;  -ms-transition: all .25s ease;  -o-transition: all .25s ease;  transition: all .25s ease;
+    color: #4f5e1d;
+    background: #B5D238;
+}
+.entry > .joinus {
+    padding: 10px 0;
+}
+.ex-more .media-object {
+    width: 100px;
+}
+.ex-more:hover {  
+    padding: 8px;  border-left: 3px solid #c5ec48;  background: rgba(197, 236, 72, 0.1);  -webkit-transition: all .25s ease;  -moz-transition: all .25s ease;  -ms-transition: all .25s ease;  -o-transition: all .25s ease;  transition: all .25s ease;
+}
+.ex-more {
+    padding: 8px;
+    margin: 0;
+}
+.ex-more > .media-body > a.type2 {
+    color: inherit;
+    text-decoration: none;
+    line-height: 20px;
+}
+.spec > .btn {
+    margin: 0px auto 5px;
+    border-radius: 0;
+}
+.spec > .btn-danger {
+    background-color: #d9534f;  border-color: #d43f3a;
+    background-image: none;
+}
+.spec > .btn-danger:hover {
+    background-color: #d2322d;  border-color: #ac2925;
+}
+.spec > .take-action {
+    font-size: 14px;
+}
+.spec > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.spec > ul > li.ex-more a {
+    text-decoration: none;
+}
+.spec > ul > li.ex-more {
+    line-height: 16px;
+    padding: 4px 8px;
+}
+.spec > .ex-more > .pull-left > .media-object {
+    width: 50px;
+}
+.spec > .supporter > .media-body {
+    font-size: 12px;
+    line-height: 15px;
+    overflow: initial;
+}
+.ex-more.supporter:hover {
+    padding: 8px 7px;
+}
